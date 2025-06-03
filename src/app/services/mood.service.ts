@@ -145,7 +145,7 @@ export class MoodService {
     const query = {
       selector: { userId },
       sort: [{ date: 'desc' }],
-      limit: 5,
+      limit: 3,
       fields: ['mood', 'note', 'date']
     };
 

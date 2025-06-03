@@ -34,7 +34,9 @@ form {
   width: 100%;
   max-width: 400px;
 }
-
+form div {
+  margin-bottom: 1.5rem;
+}
 label {
   display: block;
   margin-bottom: 0.5rem;

@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   totalEntries: number = 0;
   mostFrequentMood: string = '';
 
-  // Recent entries
   recentMoods: { mood: string; note: string; date: string }[] = [];
 
   constructor(
@@ -111,8 +110,14 @@ export class HomeComponent implements OnInit {
   }
 
   loadRecentMoods(): void {
-    this.moodService.getRecentMoods(this.username).subscribe(moods => {
+     this.moodService.getRecentMoods(this.username).subscribe({
+    next: (moods) => {
+      console.log('Recent moods:', moods);
       this.recentMoods = moods.slice(0, 3);
-    });
+      console.log('recentMoods in component:', this.recentMoods);
+
+    },
+    error: (err) => console.error('Error loading recent moods:', err)
+  });
   }
 }
