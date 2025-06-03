@@ -1,0 +1,66 @@
+.filter-buttons {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.filter-buttons button {
+  background-color: #eee;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.filter-buttons button.active {
+  background-color: #42A5F5;
+  color: white;
+}
+
+.go-back-button {
+  margin: 1rem auto;
+  text-align: center;
+}
+.go-back-button button {
+  background-color: var(--content-bg);
+  color:var(--primary-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.chart-section-container {
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.bar-chart-container,
+.pie-chart-container {
+  flex: 1 1 48%;
+  background-color: var(--content-bg);
+  color: var(--primary-text);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+}
+
+.average-mood {
+  font-size: 1.25rem;
+  text-align: center;
+  margin: 2rem auto 1rem;
+  background-color: var(--content-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color:var(--primary-text);
+}

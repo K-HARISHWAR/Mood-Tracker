@@ -1,0 +1,36 @@
+<div class="form-wrapper" [class.dark-mode]="isDarkMode">
+  <form [formGroup]="moodForm" (ngSubmit)="onSubmit()">
+    <h2>Log Your Mood</h2>
+
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" formControlName="date" required />
+    </div>
+
+    <div>
+      <label for="mood">Mood:</label>
+      <select id="mood" formControlName="mood" required>
+        <option value="" disabled selected>Select your mood</option>
+        <option value="happy">😊 Happy</option>
+        <option value="sad">😢 Sad</option>
+        <option value="angry">😠 Angry</option>
+        <option value="neutral">😐 Neutral</option>
+        <option value="excited">🤩 Excited</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="score">Mood Score (1-5):</label>
+      <input type="number" id="score" formControlName="moodScore" min="1" max="5" required />
+    </div>
+
+    <div>
+      <label for="note">Note:</label>
+      <textarea id="note" formControlName="note" placeholder="Write something about your mood..."></textarea>
+    </div>
+
+    <button type="submit" [disabled]="moodForm.invalid">
+      Save Mood
+    </button>
+  </form>
+</div>

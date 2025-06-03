@@ -1,0 +1,72 @@
+<div class="home-wrapper" [class.dark-mode]="isDarkMode">
+  <div class="nav-bar">
+    <div class="nav-left">
+      <button class="nav-button" [class.active]="activeTab === 'form'" (click)="goToMoodForm()">
+        ➕ Add Mood
+      </button>
+      <button class="nav-button" [class.active]="activeTab === 'list'" (click)="goToMoodChart()">
+        📈 Mood Trend
+      </button>
+
+      <div class="streak-tracker">
+        <span class="streak-icon">🔥</span>
+        <span class="streak-label">Streak: <strong>{{ streakCount }}</strong> days</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" [checked]="isDarkMode" (change)="toggleDarkMode()">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="user-info-container">
+        <span class="username">{{ username }}</span>
+        <button class="logout-button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="introduction-section">
+    <h2>👋 Welcome to MoodFlow</h2>
+    <p>
+      Track your emotions daily, spot patterns, and understand your mental well-being.
+      Add moods, view trends, and stay consistent with your emotional journaling journey.
+    </p>
+  </section>
+
+  <div class="dashboard-container">
+    <div class="greeting-section">
+      <h2>{{ greeting }}, {{ username }}!</h2>
+      <p>Wishing you a mindful and productive day ✨</p>
+    </div>
+
+    <div class="stats-section">
+      <h3>Your Mood Stats</h3>
+      <div class="stat-box">
+        <strong>Total Entries:</strong> {{ totalEntries }}
+      </div>
+      <div class="stat-box">
+        <strong>Most Frequent Mood:</strong> {{ mostFrequentMood }}
+      </div>
+    </div>
+  </div>
+
+  <section class="recent-entries-section">
+    <h3>📝 Recent Mood Entries</h3>
+    <div *ngIf="recentMoods?.length; else noEntries">
+      <div class="entry-card" *ngFor="let entry of recentMoods">
+        <div class="entry-header">
+          <span class="entry-date">{{ entry.date | date: 'MMM d, y' }}</span>
+          <span class="entry-mood">{{ entry.mood | titlecase }}</span>
+        </div>
+        <p class="entry-note">{{ entry.note || 'No note added.' }}</p>
+      </div>
+    </div>
+    <ng-template #noEntries>
+      <p class="no-entries">You haven't logged any moods recently.</p>
+    </ng-template>
+  </section>
+</div>
