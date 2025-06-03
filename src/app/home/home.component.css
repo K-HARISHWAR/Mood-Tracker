@@ -154,7 +154,7 @@ input:checked + .slider:before {
 .entry-card {
   background-color: var(--primary-bg);
   padding: 1rem;
-  border-left: 4px solid var(--highlight-color);
+  border-left: 4px solid ;
   border-radius: 8px;
   margin-bottom: 1rem;
   transition: background-color 0.3s;
@@ -169,12 +169,12 @@ input:checked + .slider:before {
 
 .entry-note {
   font-size: 0.95rem;
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 
 .no-entries {
   font-style: italic;
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 
 .user-info-container {

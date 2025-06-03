@@ -1,34 +1,41 @@
-<br>
-  <div class="filter-buttons" [class.dark-mode]="isDarkMode">
+<div class="filter-buttons" [class.dark-mode]="isDarkMode">
   <button 
     [class.active]="filterRange === '7d'" 
-    (click)="onFilterChange('7d')">Last 7 Days</button>
+    (click)="onFilterChange('7d')">
+    Last 7 Days
+  </button>
   <button 
     [class.active]="filterRange === '30d'" 
-    (click)="onFilterChange('30d')">Last 30 Days</button>
-</div><br>
+    (click)="onFilterChange('30d')">
+    Last 30 Days
+  </button>
+</div>
 
 <div class="chart-section-container">
   <div class="bar-chart-container" [class.dark-mode]="isDarkMode">
-    <h3>Bar Chart</h3><br>
+    <h3>Daily Mood Bar Chart</h3><br>
     <canvas baseChart
       [data]="barChartData"
       [labels]="barChartData.labels"
       [options]="barChartOptions"
-      [type]="barChartType"
+      [type]="'bar'"
       [legend]="barChartLegend">
-    </canvas><br><br>
-    <p class="average-mood">Average Mood: <strong>{{averageMood}}</strong></p>
+    </canvas><br> 
+    <p class="average-mood">Average Mood: <strong>{{ averageMood }}</strong></p>
   </div>
 
   <div class="pie-chart-container" [class.dark-mode]="isDarkMode">
-    <h3>Pie Chart</h3>
+    <h3>Mood Distribution Pie Chart</h3>
     <canvas baseChart
       [data]="pieChartData"
-      [type]="pieChartType">
+      [options]="pieChartOptions"
+      [type]="'pie'">
     </canvas>
   </div>
 </div>
+
 <div class="go-back-button">
-<button  (click)="goToHomePage()" [class.dark-mode]="isDarkMode">Home</button>
+  <button (click)="goToHomePage()" [class.dark-mode]="isDarkMode">
+    Home
+  </button>
 </div>
