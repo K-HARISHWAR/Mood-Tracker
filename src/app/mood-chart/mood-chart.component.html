@@ -13,14 +13,14 @@
 
 <div class="chart-section-container">
   <div class="bar-chart-container" [class.dark-mode]="isDarkMode">
-    <h3>Daily Mood Bar Chart</h3><br>
+    <h3>Daily Mood Bar Chart</h3><br><br>
     <canvas baseChart
       [data]="barChartData"
       [labels]="barChartData.labels"
       [options]="barChartOptions"
       [type]="'bar'"
       [legend]="barChartLegend">
-    </canvas><br> 
+    </canvas><br><br>
     <p class="average-mood">Average Mood: <strong>{{ averageMood }}</strong></p>
   </div>
 

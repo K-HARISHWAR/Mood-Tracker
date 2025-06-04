@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SignUpFormComponent } from "./sign-up-form/sign-up-form.component";
 
 @Component({
   selector: 'app-root',

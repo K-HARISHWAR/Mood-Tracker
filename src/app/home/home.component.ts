@@ -18,8 +18,6 @@ export class HomeComponent implements OnInit {
   username: string = '';
   greeting: string = '';
   activeTab: 'form' | 'list' = 'form';
-
-  // Stats
   streakCount: number = 0;
   totalEntries: number = 0;
   mostFrequentMood: string = '';
