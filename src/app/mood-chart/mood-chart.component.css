@@ -1,3 +1,8 @@
+.page-wrapper{
+  background-color: var(--body-bg);
+  min-height: 100vh;
+  padding: 2rem;
+}
 .filter-buttons {
   margin: 1rem auto;
   text-align: center;

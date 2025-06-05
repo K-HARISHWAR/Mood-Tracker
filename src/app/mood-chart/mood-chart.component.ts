@@ -29,22 +29,25 @@ export class MoodChartComponent implements OnInit {
 
   averageMood: number = 0;
 
-  barChartOptions: ChartOptions<'bar'> = {};
+  barChartOptions: ChartOptions<'line'> = {};
   pieChartOptions: ChartOptions<'pie'> = {};
 
-  barChartType: 'bar' = 'bar';
+  barChartType: 'line' = 'line';
   barChartLegend = false;
 
   barChartData: {
     labels: string[];
-    datasets: ChartDataset<'bar', number[]>[];
+    datasets: ChartDataset<'line', number[]>[];
   } = {
     labels: [],
     datasets: [
       {
         data: [],
         label: 'Mood',
-        backgroundColor: []
+        backgroundColor: [],
+        borderColor: '#bb86fc',
+        fill: true,
+        tension: 0.4,
       }
     ]
   };
@@ -98,7 +101,7 @@ export class MoodChartComponent implements OnInit {
     this.themeService.toggleDarkMode();
   }
 
-  getBarChartOptions(): ChartOptions<'bar'> {
+  getBarChartOptions(): ChartOptions<'line'> {
     return {
       responsive: true,
       plugins: {

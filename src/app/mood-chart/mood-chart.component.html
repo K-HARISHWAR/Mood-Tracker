@@ -1,4 +1,5 @@
-<div class="filter-buttons" [class.dark-mode]="isDarkMode">
+<div class="page-wrapper" [class.dark-mode]="isDarkMode">
+  <div class="filter-buttons" >
   <button 
     [class.active]="filterRange === '7d'" 
     (click)="onFilterChange('7d')">
@@ -18,7 +19,7 @@
       [data]="barChartData"
       [labels]="barChartData.labels"
       [options]="barChartOptions"
-      [type]="'bar'"
+      [type]="'line'"
       [legend]="barChartLegend">
     </canvas><br><br>
     <p class="average-mood">Average Mood: <strong>{{ averageMood }}</strong></p>
@@ -38,4 +39,5 @@
   <button (click)="goToHomePage()" [class.dark-mode]="isDarkMode">
     Home
   </button>
+</div>
 </div>

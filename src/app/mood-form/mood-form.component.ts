@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MoodService } from '../services/mood.service';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import { ThemeService } from '../services/theme.service';
   styleUrls: ['./mood-form.component.css']
 })
 export class MoodFormComponent{
-  isDarkMode= false;
+  @Input() isDarkMode = false;
   moodForm: FormGroup;
   submitting = false;
   successMessage = '';
@@ -30,6 +30,11 @@ export class MoodFormComponent{
   }
    toggleDarkMode() {
     this.themeService.toggleDarkMode();
+  }
+   ngOnInit(): void {
+    this.themeService.darkMode$.subscribe(mode => {
+      this.isDarkMode = mode;
+    });
   }
   onSubmit() {
     if (this.moodForm.invalid) return;
